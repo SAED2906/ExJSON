@@ -1,0 +1,168 @@
+{
+    "program": "multiply.xjs",
+    "global": "",
+    "instructions": [
+        {
+            "instruction": "init",
+            "code": [
+                {}
+            ]
+        },
+        {
+            "instruction": "execute",
+            "code": [
+                {}
+            ]
+        }
+    ],
+    "code": [
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "x",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "y",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "temp",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "print",
+            "code": {
+                "value": "Enter x:"
+            }
+        },
+        {
+            "type": "in",
+            "code": {
+                "variable": "x"
+            }
+        },
+        {
+            "type": "print",
+            "code": {
+                "value": "Enter y:"
+            }
+        },
+        {
+            "type": "in",
+            "code": {
+                "variable": "y"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "iteration",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "temp",
+                    "symbol": true,
+                    "value": false,
+                    "content": "x"
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "add",
+            "code": {
+                "variable1": {
+                    "symbol": true,
+                    "content": "y"
+                },
+                "variable2": {
+                    "symbol": false,
+                    "content": -1
+                },
+                "result": "y"
+            }
+        },
+        {
+            "type": "while",
+            "condition": {
+                "variable1": {
+                    "symbol": true,
+                    "content": "iteration"
+                },
+                "variable2": {
+                    "symbol": true,
+                    "content": "y"
+                },
+                "relation": "<"
+            },
+            "code": [
+                {
+                    "type": "add",
+                    "code": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "x"
+                        },
+                        "variable2": {
+                            "symbol": true,
+                            "content": "temp"
+                        },
+                        "result": "x"
+                    }
+                },
+                {
+                    "type": "print",
+                    "code": {
+                        "value": "${iteration}: x = ${x}"
+                    }
+                },
+                {
+                    "type": "add",
+                    "code": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "iteration"
+                        },
+                        "variable2": {
+                            "symbol": false,
+                            "content": 1
+                        },
+                        "result": "iteration"
+                    }
+                }
+            ]
+        }
+    ]
+}

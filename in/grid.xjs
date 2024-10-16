@@ -1,0 +1,34 @@
+int x = 0
+int y = 0
+
+in(x)
+in(y)
+
+String grid = ""
+
+int counterx = 0
+int countery = 0
+int linewidthcounter = 0
+while (countery < y) {
+    linewidthcounter = 0
+    while (linewidthcounter <= x) {
+        grid = grid + "__"
+        linewidthcounter = linewidthcounter + 1
+    }
+    grid = grid + "\n"
+    while (counterx < x) {
+        grid = grid + " |"
+        counterx = counterx + 1
+    }
+    grid = grid + "\n"
+    countery = countery + 1
+    counterx = 0
+}
+linewidthcounter = 0
+while (linewidthcounter <= x) {
+    grid = grid + "__"
+    linewidthcounter = linewidthcounter + 1
+}
+
+print(${grid})
+

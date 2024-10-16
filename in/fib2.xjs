@@ -1,0 +1,19 @@
+int x = 0
+int y = 1
+int count = 0
+int temp = 0
+int iteration = 0
+
+print(Please enter the number of fibonacci numbers to compute)
+in(count)
+print(First ${count} Fibonacci numbers:)
+
+while (iteration < count) {
+    int temp = x
+    x = x + y
+    y = temp
+    print(Fib(${iteration}) = ${x})
+    iteration = iteration + 1
+}
+
+exit()

@@ -1,0 +1,176 @@
+{
+    "program": "Fibonacci Calculator",
+    "global": "",
+    "instructions": [
+        {
+            "instruction": "init",
+            "code": [
+                {}
+            ]
+        },
+        {
+            "instruction": "execute",
+            "code": [
+                {}
+            ]
+        }
+    ],
+    "code": [
+        {
+            "type" : "define",
+            "code" : {
+                "def": {
+                    "variable": "x",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type" : "define",
+            "code" : {
+                "def": {
+                    "variable": "y",
+                    "symbol": false,
+                    "value": true,
+                    "content": 1
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type" : "define",
+            "code" : {
+                "def": {
+                    "variable": "count",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type" : "define",
+            "code" : {
+                "def": {
+                    "variable": "temp",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type" : "define",
+            "code" : {
+                "def": {
+                    "variable": "iteration",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type" : "print",
+            "code" : {
+                "value" : "Please enter the number of fibonacci numbers to compute"
+            }
+        },
+        {
+            "type": "in",
+            "code": {
+                "variable": "count"
+            }
+        },
+        {
+            "type" : "print",
+            "code" : {
+                "value" : "First ${count} Fibonacci numbers:"
+            }
+        },
+        {
+            "type": "while",
+            "condition": {
+                "variable1": {
+                    "symbol": true,
+                    "content": "iteration"
+                },
+                "variable2": {
+                    "symbol": true,
+                    "content": "count"
+                },
+                "relation": "<"
+            },
+            "code" : [
+                {
+                    "type" : "define",
+                    "code" : {
+                        "def": {
+                            "variable": "temp",
+                            "symbol": true,
+                            "value": false,
+                            "content": "x"
+                        },
+                        "type": "int"
+                    }
+                },
+                {
+                    "type": "add",
+                    "code": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "x"
+                        },
+                        "variable2": {
+                            "symbol": true,
+                            "content": "y"
+                        },
+                        "result": "x"
+                    }
+                },
+                {
+                    "type" : "define",
+                    "code" : {
+                        "def": {
+                            "variable": "y",
+                            "symbol": true,
+                            "value": false,
+                            "content": "temp"
+                        },
+                        "type": "int"
+                    }
+                },
+                {
+                    "type" : "print",
+                    "code" : {
+                        "value" : "Fib(${iteration}) = ${x}"
+                    }
+                },
+                {
+                    "type": "add",
+                    "code": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "iteration"
+                        },
+                        "variable2": {
+                            "symbol": false,
+                            "content": 1
+                        },
+                        "result": "iteration"
+                    }
+                }
+            ]
+        },
+        {
+            "type" : "exit"
+        }
+    ] 
+
+}

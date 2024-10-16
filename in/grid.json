@@ -1,0 +1,336 @@
+{
+    "program": "grid.xjs",
+    "global": "",
+    "instructions": [
+        {
+            "instruction": "init",
+            "code": [
+                {}
+            ]
+        },
+        {
+            "instruction": "execute",
+            "code": [
+                {}
+            ]
+        }
+    ],
+    "code": [
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "x",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "y",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "in",
+            "code": {
+                "variable": "x"
+            }
+        },
+        {
+            "type": "in",
+            "code": {
+                "variable": "y"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "grid",
+                    "symbol": false,
+                    "value": true,
+                    "content": ""
+                },
+                "type": "String"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "counterx",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "countery",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "linewidthcounter",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "while",
+            "condition": {
+                "variable1": {
+                    "symbol": true,
+                    "content": "countery"
+                },
+                "variable2": {
+                    "symbol": true,
+                    "content": "y"
+                },
+                "relation": "<"
+            },
+            "code": [
+                {
+                    "type": "define",
+                    "code": {
+                        "def": {
+                            "variable": "linewidthcounter",
+                            "symbol": false,
+                            "value": true,
+                            "content": 0
+                        },
+                        "type": "int"
+                    }
+                },
+                {
+                    "type": "while",
+                    "condition": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "linewidthcounter"
+                        },
+                        "variable2": {
+                            "symbol": true,
+                            "content": "x"
+                        },
+                        "relation": "<="
+                    },
+                    "code": [
+                        {
+                            "type": "add",
+                            "code": {
+                                "variable1": {
+                                    "symbol": true,
+                                    "content": "grid"
+                                },
+                                "variable2": {
+                                    "symbol": false,
+                                    "content": "\"__\""
+                                },
+                                "result": "grid"
+                            }
+                        },
+                        {
+                            "type": "add",
+                            "code": {
+                                "variable1": {
+                                    "symbol": true,
+                                    "content": "linewidthcounter"
+                                },
+                                "variable2": {
+                                    "symbol": false,
+                                    "content": 1
+                                },
+                                "result": "linewidthcounter"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "add",
+                    "code": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "grid"
+                        },
+                        "variable2": {
+                            "symbol": false,
+                            "content": "\"\\n\""
+                        },
+                        "result": "grid"
+                    }
+                },
+                {
+                    "type": "while",
+                    "condition": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "counterx"
+                        },
+                        "variable2": {
+                            "symbol": true,
+                            "content": "x"
+                        },
+                        "relation": "<"
+                    },
+                    "code": [
+                        {
+                            "type": "add",
+                            "code": {
+                                "variable1": {
+                                    "symbol": true,
+                                    "content": "grid"
+                                },
+                                "variable2": {
+                                    "symbol": false,
+                                    "content": "\" |\""
+                                },
+                                "result": "grid"
+                            }
+                        },
+                        {
+                            "type": "add",
+                            "code": {
+                                "variable1": {
+                                    "symbol": true,
+                                    "content": "counterx"
+                                },
+                                "variable2": {
+                                    "symbol": false,
+                                    "content": 1
+                                },
+                                "result": "counterx"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "add",
+                    "code": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "grid"
+                        },
+                        "variable2": {
+                            "symbol": false,
+                            "content": "\"\\n\""
+                        },
+                        "result": "grid"
+                    }
+                },
+                {
+                    "type": "add",
+                    "code": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "countery"
+                        },
+                        "variable2": {
+                            "symbol": false,
+                            "content": 1
+                        },
+                        "result": "countery"
+                    }
+                },
+                {
+                    "type": "define",
+                    "code": {
+                        "def": {
+                            "variable": "counterx",
+                            "symbol": false,
+                            "value": true,
+                            "content": 0
+                        },
+                        "type": "int"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "linewidthcounter",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "while",
+            "condition": {
+                "variable1": {
+                    "symbol": true,
+                    "content": "linewidthcounter"
+                },
+                "variable2": {
+                    "symbol": true,
+                    "content": "x"
+                },
+                "relation": "<="
+            },
+            "code": [
+                {
+                    "type": "add",
+                    "code": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "grid"
+                        },
+                        "variable2": {
+                            "symbol": false,
+                            "content": "\"__\""
+                        },
+                        "result": "grid"
+                    }
+                },
+                {
+                    "type": "add",
+                    "code": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "linewidthcounter"
+                        },
+                        "variable2": {
+                            "symbol": false,
+                            "content": 1
+                        },
+                        "result": "linewidthcounter"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "print",
+            "code": {
+                "value": "${grid}"
+            }
+        }
+    ]
+}

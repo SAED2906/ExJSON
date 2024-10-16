@@ -1,0 +1,17 @@
+int x = 0
+int y = 0
+int temp = 0
+
+print(Enter x:)
+in(x)
+print(Enter y:)
+in(y)
+
+int iteration = 0
+temp = x
+y = y + -1
+while (iteration < y) {
+    x = x + temp
+    print(${iteration}: x = ${x})
+    iteration = iteration + 1
+}

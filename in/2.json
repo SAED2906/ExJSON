@@ -1,0 +1,66 @@
+{
+    "program": "Hello World",
+    "global": "",
+    "instructions": [
+        {
+            "instruction": "init",
+            "code": [
+                {}
+            ]
+        },
+        {
+            "instruction": "execute",
+            "code": [
+                {}
+            ]
+        }
+    ],
+    "code": [
+        {
+            "type" : "define",
+            "code" : {
+                "def": {
+                    "variable": "str",
+                    "symbol": false,
+                    "value": true,
+                    "content": "Hello World!"
+                },
+                "type": "String"
+            }
+        },
+        {
+            "type" : "define",
+            "code" : {
+                "def": {
+                    "variable": "redef_str",
+                    "symbol": true,
+                    "value": false,
+                    "content": "str"
+                },
+                "type": "String"
+            }
+        },
+        {
+            "type": "in",
+            "code": {
+                "variable": "str"
+            }
+        },
+        {
+            "type" : "print",
+            "code" : {
+                "value" : "str = ${str}"
+            }
+        },
+        {
+            "type" : "print",
+            "code" : {
+                "value" : "redef_str = ${redef_str}"
+            }
+        },
+        {
+            "type" : "exit"
+        }
+    ] 
+
+}

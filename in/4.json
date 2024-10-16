@@ -1,0 +1,108 @@
+{
+    "program": "Hello World",
+    "global": "",
+    "instructions": [
+        {
+            "instruction": "init",
+            "code": [
+                {}
+            ]
+        },
+        {
+            "instruction": "execute",
+            "code": [
+                {}
+            ]
+        }
+    ],
+    "code": [
+        {
+            "type" : "define",
+            "code" : {
+                "def": {
+                    "variable": "x",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type" : "define",
+            "code" : {
+                "def": {
+                    "variable": "y",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type" : "print",
+            "code" : {
+                "value" : "Please enter a number for x"
+            }
+        },
+        {
+            "type": "in",
+            "code": {
+                "variable": "x"
+            }
+        },
+        {
+            "type" : "print",
+            "code" : {
+                "value" : "Please enter a number for y"
+            }
+        },
+        {
+            "type": "in",
+            "code": {
+                "variable": "y"
+            }
+        },
+        {
+            "type": "while",
+            "condition": {
+                "variable1": {
+                    "symbol": true,
+                    "content": "x"
+                },
+                "variable2": {
+                    "symbol": true,
+                    "content": "y"
+                },
+                "relation": "!="
+            },
+            "code" : [
+                {
+                    "type" : "print",
+                    "code" : {
+                        "value" : "x = ${x} and y = ${y}"
+                    }
+                },
+                {
+                    "type": "add",
+                    "code": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "x"
+                        },
+                        "variable2": {
+                            "symbol": false,
+                            "content": 1
+                        },
+                        "result": "x"
+                    }
+                }
+            ]
+        },
+        {
+            "type" : "exit"
+        }
+    ] 
+
+}

@@ -1,0 +1,5 @@
+String message = ""
+
+message = "Hello world!"
+
+print(${message})

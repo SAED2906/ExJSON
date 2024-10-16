@@ -1,0 +1,44 @@
+{
+    "program": "Hello World",
+    "global": "",
+    "instructions": [
+        {
+            "instruction": "init",
+            "code": [
+                {}
+            ]
+        },
+        {
+            "instruction": "execute",
+            "code": [
+                {}
+            ]
+        }
+    ],
+    "code": [
+        {
+            "type" : "define",
+            "code" : {
+                "def": {
+                    "symbol": "str",
+                    "value": "Hello World!"
+                },
+                "type": "String"
+            }
+        },
+        {
+            "type" : "out",
+            "code" : {
+                "value" : {
+                    "symbol": true,
+                    "value": false,
+                    "content": "str"
+                }
+            }
+        },
+        {
+            "type" : "exit"
+        }
+    ] 
+
+}

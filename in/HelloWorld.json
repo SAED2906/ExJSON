@@ -1,0 +1,50 @@
+{
+    "program": "HelloWorld.xjs",
+    "global": "",
+    "instructions": [
+        {
+            "instruction": "init",
+            "code": [
+                {}
+            ]
+        },
+        {
+            "instruction": "execute",
+            "code": [
+                {}
+            ]
+        }
+    ],
+    "code": [
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "message",
+                    "symbol": false,
+                    "value": true,
+                    "content": ""
+                },
+                "type": "String"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "message",
+                    "symbol": false,
+                    "value": true,
+                    "content": "Hello world!"
+                },
+                "type": "String"
+            }
+        },
+        {
+            "type": "print",
+            "code": {
+                "value": "${message}"
+            }
+        }
+    ]
+}
