@@ -227,6 +227,30 @@
             }
         },
         {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "placed",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "z",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
             "type": "while",
             "condition": {
                 "variable1": {
@@ -347,6 +371,18 @@
                                                         },
                                                         "result": "cmpy"
                                                     }
+                                                },
+                                                {
+                                                    "type": "define",
+                                                    "code": {
+                                                        "def": {
+                                                            "variable": "placed",
+                                                            "symbol": false,
+                                                            "value": true,
+                                                            "content": 1
+                                                        },
+                                                        "type": "int"
+                                                    }
                                                 }
                                             ]
                                         },
@@ -393,29 +429,17 @@
                                     },
                                     "code": [
                                         {
-                                            "type": "define",
-                                            "code": {
-                                                "def": {
-                                                    "variable": "cmpy",
-                                                    "symbol": false,
-                                                    "value": true,
-                                                    "content": -1
-                                                },
-                                                "type": "int"
-                                            }
-                                        },
-                                        {
                                             "type": "while",
                                             "condition": {
                                                 "variable1": {
                                                     "symbol": true,
-                                                    "content": "cmpy"
+                                                    "content": "placed"
                                                 },
                                                 "variable2": {
                                                     "symbol": true,
-                                                    "content": "yCount"
+                                                    "content": "z"
                                                 },
-                                                "relation": "!="
+                                                "relation": "=="
                                             },
                                             "code": [
                                                 {
@@ -436,15 +460,27 @@
                                                     "type": "define",
                                                     "code": {
                                                         "def": {
-                                                            "variable": "cmpy",
-                                                            "symbol": true,
-                                                            "value": false,
-                                                            "content": "yCount"
+                                                            "variable": "placed",
+                                                            "symbol": false,
+                                                            "value": true,
+                                                            "content": 1
                                                         },
                                                         "type": "int"
                                                     }
                                                 }
                                             ]
+                                        },
+                                        {
+                                            "type": "define",
+                                            "code": {
+                                                "def": {
+                                                    "variable": "placed",
+                                                    "symbol": false,
+                                                    "value": true,
+                                                    "content": 0
+                                                },
+                                                "type": "int"
+                                            }
                                         },
                                         {
                                             "type": "add",
@@ -547,6 +583,138 @@
                         },
                         "type": "int"
                     }
+                },
+                {
+                    "type": "add",
+                    "code": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "posx"
+                        },
+                        "variable2": {
+                            "symbol": false,
+                            "content": 1
+                        },
+                        "result": "posx"
+                    }
+                },
+                {
+                    "type": "define",
+                    "code": {
+                        "def": {
+                            "variable": "tempx",
+                            "symbol": true,
+                            "value": false,
+                            "content": "posx"
+                        },
+                        "type": "int"
+                    }
+                },
+                {
+                    "type": "define",
+                    "code": {
+                        "def": {
+                            "variable": "tempy",
+                            "symbol": true,
+                            "value": false,
+                            "content": "posy"
+                        },
+                        "type": "int"
+                    }
+                },
+                {
+                    "type": "while",
+                    "condition": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "tempx"
+                        },
+                        "variable2": {
+                            "symbol": true,
+                            "content": "width"
+                        },
+                        "relation": "=="
+                    },
+                    "code": [
+                        {
+                            "type": "define",
+                            "code": {
+                                "def": {
+                                    "variable": "posx",
+                                    "symbol": false,
+                                    "value": true,
+                                    "content": 0
+                                },
+                                "type": "int"
+                            }
+                        },
+                        {
+                            "type": "add",
+                            "code": {
+                                "variable1": {
+                                    "symbol": true,
+                                    "content": "posy"
+                                },
+                                "variable2": {
+                                    "symbol": false,
+                                    "content": 1
+                                },
+                                "result": "posy"
+                            }
+                        },
+                        {
+                            "type": "define",
+                            "code": {
+                                "def": {
+                                    "variable": "tempx",
+                                    "symbol": true,
+                                    "value": false,
+                                    "content": "posx"
+                                },
+                                "type": "int"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "while",
+                    "condition": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "tempy"
+                        },
+                        "variable2": {
+                            "symbol": true,
+                            "content": "height"
+                        },
+                        "relation": "=="
+                    },
+                    "code": [
+                        {
+                            "type": "define",
+                            "code": {
+                                "def": {
+                                    "variable": "posy",
+                                    "symbol": false,
+                                    "value": true,
+                                    "content": 0
+                                },
+                                "type": "int"
+                            }
+                        },
+                        {
+                            "type": "define",
+                            "code": {
+                                "def": {
+                                    "variable": "tempy",
+                                    "symbol": true,
+                                    "value": false,
+                                    "content": "posy"
+                                },
+                                "type": "int"
+                            }
+                        }
+                    ]
                 }
             ]
         }

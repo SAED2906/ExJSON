@@ -29,6 +29,9 @@ escape = "chr(27)`"[2J""
 
 String line = ""
 
+int placed = 0
+int z = 0
+
 while (val > cond) {
     while (yCount < height) {
         while (xCount < width) {
@@ -38,16 +41,17 @@ while (val > cond) {
                 while (cmpy == yCount) {
                     line = line + "⬜"
                     cmpy = cmpy + -1
+                    placed = 1
                 }
                 cmp = cmp + -1
             }
             cmp = -1
             while (cmp != xCount) {
-                cmpy = -1
-                while (cmpy != yCount) {
+                while (placed == z) {
                     line = line + "⬛"
-                    cmpy = yCount
+                    placed = 1
                 }
+                placed = 0
                 xCount = xCount + 1
                 cmp = xCount
             }
@@ -59,4 +63,20 @@ while (val > cond) {
     print(${line})
     line = ""
     yCount = 0
+
+    posx = posx + 1
+    int tempx = posx
+    int tempy = posy
+    
+    while (tempx == width) {
+        posx = 0
+        posy = posy + 1
+        tempx = posx
+    }
+    while (tempy == height) {
+        posy = 0
+        tempy = posy
+    }
+
+
 }
