@@ -1,0 +1,62 @@
+int posx = 0
+int posy = 0
+
+int cond = 0
+int val = 1
+
+String board = ""
+
+int width = 0
+int height = 0
+
+in(width)
+in(height)
+
+print(${width})
+print(${height})
+
+int begin = 0
+in(begin)
+
+int xCount = 0
+int yCount = 0
+
+int cmp = 0
+int cmpy = 0
+
+String escape = ""
+escape = "chr(27)`"[2J""
+
+String line = ""
+
+while (val > cond) {
+    while (yCount < height) {
+        while (xCount < width) {
+            cmp = posx
+            while (cmp == xCount) {
+                cmpy = posy
+                while (cmpy == yCount) {
+                    line = line + "⬜"
+                    cmpy = cmpy + -1
+                }
+                cmp = cmp + -1
+            }
+            cmp = -1
+            while (cmp != xCount) {
+                cmpy = -1
+                while (cmpy != yCount) {
+                    line = line + "⬛"
+                    cmpy = yCount
+                }
+                xCount = xCount + 1
+                cmp = xCount
+            }
+        }
+        line = line + "\n"
+        xCount = 0
+        yCount = yCount + 1
+    }
+    print(${line})
+    line = ""
+    yCount = 0
+}

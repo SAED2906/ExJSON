@@ -11,7 +11,11 @@ def printf(code_block):
 
     pattern = r"\$\{([a-zA-Z_][a-zA-Z0-9_]*)\}"
     result = re.sub(pattern, lambda match: str(variables.get(match.group(1), match.group(0))), out_value)
-    print(result.replace('\\n', '\n').replace('\"', ''))
+    if 'chr(27)' in result:
+        print(chr(27) + "[2J")
+    else:
+        print(result.replace('\\n', '\n').replace('\"', '').replace('`', ' + '))
+
 
 def add(code_block):
     add_code = code_block.get("code", {})

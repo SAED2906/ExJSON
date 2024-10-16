@@ -1,0 +1,554 @@
+{
+    "program": "../in/snake.xjs",
+    "global": "",
+    "instructions": [
+        {
+            "instruction": "init",
+            "code": [
+                {}
+            ]
+        },
+        {
+            "instruction": "execute",
+            "code": [
+                {}
+            ]
+        }
+    ],
+    "code": [
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "posx",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "posy",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "cond",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "val",
+                    "symbol": false,
+                    "value": true,
+                    "content": 1
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "board",
+                    "symbol": false,
+                    "value": true,
+                    "content": ""
+                },
+                "type": "String"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "width",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "height",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "in",
+            "code": {
+                "variable": "width"
+            }
+        },
+        {
+            "type": "in",
+            "code": {
+                "variable": "height"
+            }
+        },
+        {
+            "type": "print",
+            "code": {
+                "value": "${width}"
+            }
+        },
+        {
+            "type": "print",
+            "code": {
+                "value": "${height}"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "begin",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "in",
+            "code": {
+                "variable": "begin"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "xCount",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "yCount",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "cmp",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "cmpy",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "escape",
+                    "symbol": false,
+                    "value": true,
+                    "content": ""
+                },
+                "type": "String"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "escape",
+                    "symbol": false,
+                    "value": true,
+                    "content": "chr(27)`[2J"
+                },
+                "type": "String"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "line",
+                    "symbol": false,
+                    "value": true,
+                    "content": ""
+                },
+                "type": "String"
+            }
+        },
+        {
+            "type": "while",
+            "condition": {
+                "variable1": {
+                    "symbol": true,
+                    "content": "val"
+                },
+                "variable2": {
+                    "symbol": true,
+                    "content": "cond"
+                },
+                "relation": ">"
+            },
+            "code": [
+                {
+                    "type": "while",
+                    "condition": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "yCount"
+                        },
+                        "variable2": {
+                            "symbol": true,
+                            "content": "height"
+                        },
+                        "relation": "<"
+                    },
+                    "code": [
+                        {
+                            "type": "while",
+                            "condition": {
+                                "variable1": {
+                                    "symbol": true,
+                                    "content": "xCount"
+                                },
+                                "variable2": {
+                                    "symbol": true,
+                                    "content": "width"
+                                },
+                                "relation": "<"
+                            },
+                            "code": [
+                                {
+                                    "type": "define",
+                                    "code": {
+                                        "def": {
+                                            "variable": "cmp",
+                                            "symbol": true,
+                                            "value": false,
+                                            "content": "posx"
+                                        },
+                                        "type": "int"
+                                    }
+                                },
+                                {
+                                    "type": "while",
+                                    "condition": {
+                                        "variable1": {
+                                            "symbol": true,
+                                            "content": "cmp"
+                                        },
+                                        "variable2": {
+                                            "symbol": true,
+                                            "content": "xCount"
+                                        },
+                                        "relation": "=="
+                                    },
+                                    "code": [
+                                        {
+                                            "type": "define",
+                                            "code": {
+                                                "def": {
+                                                    "variable": "cmpy",
+                                                    "symbol": true,
+                                                    "value": false,
+                                                    "content": "posy"
+                                                },
+                                                "type": "int"
+                                            }
+                                        },
+                                        {
+                                            "type": "while",
+                                            "condition": {
+                                                "variable1": {
+                                                    "symbol": true,
+                                                    "content": "cmpy"
+                                                },
+                                                "variable2": {
+                                                    "symbol": true,
+                                                    "content": "yCount"
+                                                },
+                                                "relation": "=="
+                                            },
+                                            "code": [
+                                                {
+                                                    "type": "add",
+                                                    "code": {
+                                                        "variable1": {
+                                                            "symbol": true,
+                                                            "content": "line"
+                                                        },
+                                                        "variable2": {
+                                                            "symbol": false,
+                                                            "content": "\"\u2b1c\""
+                                                        },
+                                                        "result": "line"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "add",
+                                                    "code": {
+                                                        "variable1": {
+                                                            "symbol": true,
+                                                            "content": "cmpy"
+                                                        },
+                                                        "variable2": {
+                                                            "symbol": false,
+                                                            "content": -1
+                                                        },
+                                                        "result": "cmpy"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "add",
+                                            "code": {
+                                                "variable1": {
+                                                    "symbol": true,
+                                                    "content": "cmp"
+                                                },
+                                                "variable2": {
+                                                    "symbol": false,
+                                                    "content": -1
+                                                },
+                                                "result": "cmp"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "define",
+                                    "code": {
+                                        "def": {
+                                            "variable": "cmp",
+                                            "symbol": false,
+                                            "value": true,
+                                            "content": -1
+                                        },
+                                        "type": "int"
+                                    }
+                                },
+                                {
+                                    "type": "while",
+                                    "condition": {
+                                        "variable1": {
+                                            "symbol": true,
+                                            "content": "cmp"
+                                        },
+                                        "variable2": {
+                                            "symbol": true,
+                                            "content": "xCount"
+                                        },
+                                        "relation": "!="
+                                    },
+                                    "code": [
+                                        {
+                                            "type": "define",
+                                            "code": {
+                                                "def": {
+                                                    "variable": "cmpy",
+                                                    "symbol": false,
+                                                    "value": true,
+                                                    "content": -1
+                                                },
+                                                "type": "int"
+                                            }
+                                        },
+                                        {
+                                            "type": "while",
+                                            "condition": {
+                                                "variable1": {
+                                                    "symbol": true,
+                                                    "content": "cmpy"
+                                                },
+                                                "variable2": {
+                                                    "symbol": true,
+                                                    "content": "yCount"
+                                                },
+                                                "relation": "!="
+                                            },
+                                            "code": [
+                                                {
+                                                    "type": "add",
+                                                    "code": {
+                                                        "variable1": {
+                                                            "symbol": true,
+                                                            "content": "line"
+                                                        },
+                                                        "variable2": {
+                                                            "symbol": false,
+                                                            "content": "\"\u2b1b\""
+                                                        },
+                                                        "result": "line"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "define",
+                                                    "code": {
+                                                        "def": {
+                                                            "variable": "cmpy",
+                                                            "symbol": true,
+                                                            "value": false,
+                                                            "content": "yCount"
+                                                        },
+                                                        "type": "int"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "add",
+                                            "code": {
+                                                "variable1": {
+                                                    "symbol": true,
+                                                    "content": "xCount"
+                                                },
+                                                "variable2": {
+                                                    "symbol": false,
+                                                    "content": 1
+                                                },
+                                                "result": "xCount"
+                                            }
+                                        },
+                                        {
+                                            "type": "define",
+                                            "code": {
+                                                "def": {
+                                                    "variable": "cmp",
+                                                    "symbol": true,
+                                                    "value": false,
+                                                    "content": "xCount"
+                                                },
+                                                "type": "int"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "add",
+                            "code": {
+                                "variable1": {
+                                    "symbol": true,
+                                    "content": "line"
+                                },
+                                "variable2": {
+                                    "symbol": false,
+                                    "content": "\"\\n\""
+                                },
+                                "result": "line"
+                            }
+                        },
+                        {
+                            "type": "define",
+                            "code": {
+                                "def": {
+                                    "variable": "xCount",
+                                    "symbol": false,
+                                    "value": true,
+                                    "content": 0
+                                },
+                                "type": "int"
+                            }
+                        },
+                        {
+                            "type": "add",
+                            "code": {
+                                "variable1": {
+                                    "symbol": true,
+                                    "content": "yCount"
+                                },
+                                "variable2": {
+                                    "symbol": false,
+                                    "content": 1
+                                },
+                                "result": "yCount"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "print",
+                    "code": {
+                        "value": "${line}"
+                    }
+                },
+                {
+                    "type": "define",
+                    "code": {
+                        "def": {
+                            "variable": "line",
+                            "symbol": false,
+                            "value": true,
+                            "content": ""
+                        },
+                        "type": "String"
+                    }
+                },
+                {
+                    "type": "define",
+                    "code": {
+                        "def": {
+                            "variable": "yCount",
+                            "symbol": false,
+                            "value": true,
+                            "content": 0
+                        },
+                        "type": "int"
+                    }
+                }
+            ]
+        }
+    ]
+}
