@@ -19,17 +19,22 @@ while (1 > 0) {
         int NS = rand()
         int EW = rand()
 
-        if (NS == 0) {
-            posy = posy + -1
+        int choice = rand()
+        if (choice == 0) {
+            if (NS == 0) {
+                posy = posy + -1
+            }
+            if (NS == 1) {
+                posy = posy + 1
+            }
         }
-        if (NS == 1) {
-            posy = posy + 1
-        }
-        if (EW == 0) {
-            posx = posx + -1
-        }
-        if (EW == 1) {
-            posx = posx + 1
+        if (choice == 1) {
+            if (EW == 0) {
+                posx = posx + -1
+            }
+            if (EW == 1) {
+                posx = posx + 1
+            }
         }
 
         if (posx < 0) {
