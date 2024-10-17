@@ -1,0 +1,66 @@
+int posx = 0
+int posy = 0
+int width = 10
+int height = 10
+
+print(Grid Width: ${width}, Grid Height: ${height})
+print(Enter 1 to move up, 2 to move down, 3 to move left, 4 to move right, 5 to mark the current position)
+
+String line = ""
+
+while (1 > 0) {
+    int userInput = 0
+    in(userInput)
+
+    if (userInput == 1) {
+        posy = posy + -1
+    }
+    if (userInput == 2) {
+        posy = posy + 1
+    }
+    if (userInput == 3) {
+        posx = posx + -1
+    }
+    if (userInput == 4) {
+        posx = posx + 1
+    }
+
+    if (posx < 0) {
+        posx = width + -1
+    }
+    if (posx == width) {
+        posx = 0
+    }
+
+    if (posy < 0) {
+        posy = height + -1
+    }
+    if (posy == height) {
+        posy = 0
+    }
+
+    int xCount = 0
+    int yCount = 0
+    while (yCount < height) {
+        while (xCount < width) {
+            int placed = 0
+            if (posx == xCount) {
+                if (posy == yCount) {
+                    line = line + "⬜"
+                    placed = 1
+                }
+            }
+            if (placed != 1) {
+                line = line + "⬛"
+            }
+            placed = 0
+            xCount = xCount + 1
+        }
+        xCount = 0
+        line = line + "\n"
+        yCount = yCount + 1
+    }
+    yCount = 0
+    print(${line})
+    line = ""
+}

@@ -1,0 +1,614 @@
+{
+    "program": "../in/control.xjs",
+    "global": "",
+    "instructions": [
+        {
+            "instruction": "init",
+            "code": [
+                {}
+            ]
+        },
+        {
+            "instruction": "execute",
+            "code": [
+                {}
+            ]
+        }
+    ],
+    "code": [
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "posx",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "posy",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "width",
+                    "symbol": false,
+                    "value": true,
+                    "content": 10
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "height",
+                    "symbol": false,
+                    "value": true,
+                    "content": 10
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "print",
+            "code": {
+                "value": "Grid Width: ${width}, Grid Height: ${height}"
+            }
+        },
+        {
+            "type": "print",
+            "code": {
+                "value": "Enter 1 to move up, 2 to move down, 3 to move left, 4 to move right, 5 to mark the current position"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "line",
+                    "symbol": false,
+                    "value": true,
+                    "content": ""
+                },
+                "type": "String"
+            }
+        },
+        {
+            "type": "while",
+            "condition": {
+                "variable1": {
+                    "symbol": false,
+                    "content": 1
+                },
+                "variable2": {
+                    "symbol": false,
+                    "content": 0
+                },
+                "relation": ">"
+            },
+            "code": [
+                {
+                    "type": "define",
+                    "code": {
+                        "def": {
+                            "variable": "userInput",
+                            "symbol": false,
+                            "value": true,
+                            "content": 0
+                        },
+                        "type": "int"
+                    }
+                },
+                {
+                    "type": "in",
+                    "code": {
+                        "variable": "userInput"
+                    }
+                },
+                {
+                    "type": "if",
+                    "condition": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "userInput"
+                        },
+                        "variable2": {
+                            "symbol": false,
+                            "content": 1
+                        },
+                        "relation": "=="
+                    },
+                    "code": [
+                        {
+                            "type": "add",
+                            "code": {
+                                "variable1": {
+                                    "symbol": true,
+                                    "content": "posy"
+                                },
+                                "variable2": {
+                                    "symbol": false,
+                                    "content": -1
+                                },
+                                "result": "posy"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "if",
+                    "condition": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "userInput"
+                        },
+                        "variable2": {
+                            "symbol": false,
+                            "content": 2
+                        },
+                        "relation": "=="
+                    },
+                    "code": [
+                        {
+                            "type": "add",
+                            "code": {
+                                "variable1": {
+                                    "symbol": true,
+                                    "content": "posy"
+                                },
+                                "variable2": {
+                                    "symbol": false,
+                                    "content": 1
+                                },
+                                "result": "posy"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "if",
+                    "condition": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "userInput"
+                        },
+                        "variable2": {
+                            "symbol": false,
+                            "content": 3
+                        },
+                        "relation": "=="
+                    },
+                    "code": [
+                        {
+                            "type": "add",
+                            "code": {
+                                "variable1": {
+                                    "symbol": true,
+                                    "content": "posx"
+                                },
+                                "variable2": {
+                                    "symbol": false,
+                                    "content": -1
+                                },
+                                "result": "posx"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "if",
+                    "condition": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "userInput"
+                        },
+                        "variable2": {
+                            "symbol": false,
+                            "content": 4
+                        },
+                        "relation": "=="
+                    },
+                    "code": [
+                        {
+                            "type": "add",
+                            "code": {
+                                "variable1": {
+                                    "symbol": true,
+                                    "content": "posx"
+                                },
+                                "variable2": {
+                                    "symbol": false,
+                                    "content": 1
+                                },
+                                "result": "posx"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "if",
+                    "condition": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "posx"
+                        },
+                        "variable2": {
+                            "symbol": false,
+                            "content": 0
+                        },
+                        "relation": "<"
+                    },
+                    "code": [
+                        {
+                            "type": "add",
+                            "code": {
+                                "variable1": {
+                                    "symbol": true,
+                                    "content": "width"
+                                },
+                                "variable2": {
+                                    "symbol": false,
+                                    "content": -1
+                                },
+                                "result": "posx"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "if",
+                    "condition": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "posx"
+                        },
+                        "variable2": {
+                            "symbol": true,
+                            "content": "width"
+                        },
+                        "relation": "=="
+                    },
+                    "code": [
+                        {
+                            "type": "define",
+                            "code": {
+                                "def": {
+                                    "variable": "posx",
+                                    "symbol": false,
+                                    "value": true,
+                                    "content": 0
+                                },
+                                "type": "int"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "if",
+                    "condition": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "posy"
+                        },
+                        "variable2": {
+                            "symbol": false,
+                            "content": 0
+                        },
+                        "relation": "<"
+                    },
+                    "code": [
+                        {
+                            "type": "add",
+                            "code": {
+                                "variable1": {
+                                    "symbol": true,
+                                    "content": "height"
+                                },
+                                "variable2": {
+                                    "symbol": false,
+                                    "content": -1
+                                },
+                                "result": "posy"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "if",
+                    "condition": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "posy"
+                        },
+                        "variable2": {
+                            "symbol": true,
+                            "content": "height"
+                        },
+                        "relation": "=="
+                    },
+                    "code": [
+                        {
+                            "type": "define",
+                            "code": {
+                                "def": {
+                                    "variable": "posy",
+                                    "symbol": false,
+                                    "value": true,
+                                    "content": 0
+                                },
+                                "type": "int"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "define",
+                    "code": {
+                        "def": {
+                            "variable": "xCount",
+                            "symbol": false,
+                            "value": true,
+                            "content": 0
+                        },
+                        "type": "int"
+                    }
+                },
+                {
+                    "type": "define",
+                    "code": {
+                        "def": {
+                            "variable": "yCount",
+                            "symbol": false,
+                            "value": true,
+                            "content": 0
+                        },
+                        "type": "int"
+                    }
+                },
+                {
+                    "type": "while",
+                    "condition": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "yCount"
+                        },
+                        "variable2": {
+                            "symbol": true,
+                            "content": "height"
+                        },
+                        "relation": "<"
+                    },
+                    "code": [
+                        {
+                            "type": "while",
+                            "condition": {
+                                "variable1": {
+                                    "symbol": true,
+                                    "content": "xCount"
+                                },
+                                "variable2": {
+                                    "symbol": true,
+                                    "content": "width"
+                                },
+                                "relation": "<"
+                            },
+                            "code": [
+                                {
+                                    "type": "define",
+                                    "code": {
+                                        "def": {
+                                            "variable": "placed",
+                                            "symbol": false,
+                                            "value": true,
+                                            "content": 0
+                                        },
+                                        "type": "int"
+                                    }
+                                },
+                                {
+                                    "type": "if",
+                                    "condition": {
+                                        "variable1": {
+                                            "symbol": true,
+                                            "content": "posx"
+                                        },
+                                        "variable2": {
+                                            "symbol": true,
+                                            "content": "xCount"
+                                        },
+                                        "relation": "=="
+                                    },
+                                    "code": [
+                                        {
+                                            "type": "if",
+                                            "condition": {
+                                                "variable1": {
+                                                    "symbol": true,
+                                                    "content": "posy"
+                                                },
+                                                "variable2": {
+                                                    "symbol": true,
+                                                    "content": "yCount"
+                                                },
+                                                "relation": "=="
+                                            },
+                                            "code": [
+                                                {
+                                                    "type": "add",
+                                                    "code": {
+                                                        "variable1": {
+                                                            "symbol": true,
+                                                            "content": "line"
+                                                        },
+                                                        "variable2": {
+                                                            "symbol": false,
+                                                            "content": "\"\u2b1c\""
+                                                        },
+                                                        "result": "line"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "define",
+                                                    "code": {
+                                                        "def": {
+                                                            "variable": "placed",
+                                                            "symbol": false,
+                                                            "value": true,
+                                                            "content": 1
+                                                        },
+                                                        "type": "int"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "if",
+                                    "condition": {
+                                        "variable1": {
+                                            "symbol": true,
+                                            "content": "placed"
+                                        },
+                                        "variable2": {
+                                            "symbol": false,
+                                            "content": 1
+                                        },
+                                        "relation": "!="
+                                    },
+                                    "code": [
+                                        {
+                                            "type": "add",
+                                            "code": {
+                                                "variable1": {
+                                                    "symbol": true,
+                                                    "content": "line"
+                                                },
+                                                "variable2": {
+                                                    "symbol": false,
+                                                    "content": "\"\u2b1b\""
+                                                },
+                                                "result": "line"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "define",
+                                    "code": {
+                                        "def": {
+                                            "variable": "placed",
+                                            "symbol": false,
+                                            "value": true,
+                                            "content": 0
+                                        },
+                                        "type": "int"
+                                    }
+                                },
+                                {
+                                    "type": "add",
+                                    "code": {
+                                        "variable1": {
+                                            "symbol": true,
+                                            "content": "xCount"
+                                        },
+                                        "variable2": {
+                                            "symbol": false,
+                                            "content": 1
+                                        },
+                                        "result": "xCount"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "define",
+                            "code": {
+                                "def": {
+                                    "variable": "xCount",
+                                    "symbol": false,
+                                    "value": true,
+                                    "content": 0
+                                },
+                                "type": "int"
+                            }
+                        },
+                        {
+                            "type": "add",
+                            "code": {
+                                "variable1": {
+                                    "symbol": true,
+                                    "content": "line"
+                                },
+                                "variable2": {
+                                    "symbol": false,
+                                    "content": "\"\\n\""
+                                },
+                                "result": "line"
+                            }
+                        },
+                        {
+                            "type": "add",
+                            "code": {
+                                "variable1": {
+                                    "symbol": true,
+                                    "content": "yCount"
+                                },
+                                "variable2": {
+                                    "symbol": false,
+                                    "content": 1
+                                },
+                                "result": "yCount"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "define",
+                    "code": {
+                        "def": {
+                            "variable": "yCount",
+                            "symbol": false,
+                            "value": true,
+                            "content": 0
+                        },
+                        "type": "int"
+                    }
+                },
+                {
+                    "type": "print",
+                    "code": {
+                        "value": "${line}"
+                    }
+                },
+                {
+                    "type": "define",
+                    "code": {
+                        "def": {
+                            "variable": "line",
+                            "symbol": false,
+                            "value": true,
+                            "content": ""
+                        },
+                        "type": "String"
+                    }
+                }
+            ]
+        }
+    ]
+}
