@@ -1,0 +1,22 @@
+int x = rand()
+
+x = x + rand()
+
+if (x > 1) {
+    print(${x})
+}
+
+int y = 0
+int counter = 0
+
+while (x < 100) {
+    y = x
+    x = x + rand()
+    if (x == y) {
+        counter = counter + 1
+    }
+    #print(${x})
+}
+
+print(${counter})
+print(${x})

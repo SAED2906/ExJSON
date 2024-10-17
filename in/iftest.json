@@ -1,0 +1,66 @@
+{
+    "program": "../in/iftest.xjs",
+    "global": "",
+    "instructions": [
+        {
+            "instruction": "init",
+            "code": [
+                {}
+            ]
+        },
+        {
+            "instruction": "execute",
+            "code": [
+                {}
+            ]
+        }
+    ],
+    "code": [
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "x",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "y",
+                    "symbol": false,
+                    "value": true,
+                    "content": 1
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "if",
+            "condition": {
+                "variable1": {
+                    "symbol": true,
+                    "content": "y"
+                },
+                "variable2": {
+                    "symbol": true,
+                    "content": "x"
+                },
+                "relation": ">"
+            },
+            "code": [
+                {
+                    "type": "print",
+                    "code": {
+                        "value": "Y is greater than x"
+                    }
+                }
+            ]
+        }
+    ]
+}

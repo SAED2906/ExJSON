@@ -1,0 +1,76 @@
+int posx = 0
+int posy = 0
+int r = 0
+int iteration = 0
+
+int width = 10
+int height = 10
+
+print(Width: ${width}, Height: ${height})
+
+String line = ""
+
+while (1 > 0) {
+    r = r + rand()
+    if (r > 32000) {
+        # print(x = ${posx}, iteration = ${iteration} and r = ${r})
+        r = 0
+
+        int NS = rand()
+        int EW = rand()
+
+        if (NS == 0) {
+            posy = posy + -1
+        }
+        if (NS == 1) {
+            posy = posy + 1
+        }
+        if (EW == 0) {
+            posx = posx + -1
+        }
+        if (EW == 1) {
+            posx = posx + 1
+        }
+
+        if (posx < 0) {
+            posx = width + -1
+        }
+        if (posx == width) {
+            posx = 0
+        }
+
+        if (posy < 0) {
+            posy = height + -1
+        }
+        if (posy == height) {
+            posy = 0
+        }
+
+
+        iteration = iteration + 1
+        int xCount = 0
+        int yCount = 0
+        while (yCount < height) {
+            while (xCount < width) {
+                int placed = 0
+                if (posx == xCount) {
+                    if (posy == yCount) {
+                        line = line + "⬜"
+                        placed = 1
+                    }
+                }
+                if (placed != 1) {
+                    line = line + "⬛"
+                }
+                placed = 0
+                xCount = xCount + 1
+            }
+            xCount = 0
+            line = line + "\n"
+            yCount = yCount + 1
+        }
+        yCount = 0
+        print(${line})
+        line = ""
+    }
+}

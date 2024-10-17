@@ -70,16 +70,26 @@ def transpile_code(input_code, name):
         elif line.startswith("while"):
             condition = line[6:-2].strip()
             iteration_var, rel, count_var = condition.split()
+            var1 = iteration_var.strip().replace('(','').replace(')','')
+            var2 = count_var.strip().replace('(','').replace(')','')
+            v1 = True
+            v2 = True 
+            if is_numeric(var1):
+                v1 = False
+                var1 = int(var1)
+            if is_numeric(var2):
+                v2 = False
+                var2 = int(var2)
             while_block = {
                 "type": "while",
                 "condition": {
                     "variable1": {
-                        "symbol": True,
-                        "content": iteration_var.strip().replace('(','').replace(')','')
+                        "symbol": v1,
+                        "content": var1
                     },
                     "variable2": {
-                        "symbol": True,
-                        "content": count_var.strip().replace('(','').replace(')','')
+                        "symbol": v2,
+                        "content": var2
                     },
                     "relation": rel
                 },
@@ -93,6 +103,38 @@ def transpile_code(input_code, name):
             })
         elif line.endswith("}") and len(context_stack) > 1:
             context_stack.pop()
+        elif line.startswith("if"):
+            condition = line[3:-2].strip()
+            iteration_var, rel, count_var = condition.split()
+            var1 = iteration_var.strip().replace('(','').replace(')','')
+            var2 = count_var.strip().replace('(','').replace(')','')
+            v1 = True
+            v2 = True 
+            if is_numeric(var1):
+                v1 = False
+                var1 = int(var1)
+            if is_numeric(var2):
+                v2 = False
+                var2 = int(var2)
+            if_block = {
+                "type": "if",
+                "condition": {
+                    "variable1": {
+                        "symbol": v1,
+                        "content": var1
+                    },
+                    "variable2": {
+                        "symbol": v2,
+                        "content": var2
+                    },
+                    "relation": rel
+                },
+                "code": []
+            }
+            context_stack[-1].append(if_block)
+            context_stack.append(if_block["code"])
+        elif line.startswith("#"):
+            print("Skipping comment")
         else:
             if line.startswith("int "):
                 _, var_name, _, value = line.split()
@@ -104,6 +146,10 @@ def transpile_code(input_code, name):
                 if '"' in value:
                     v1 = False
                     v = False
+                if '(' in value:
+                    v = True
+                if ')' in value:
+                    v = True
                 context_stack[-1].append({
                     "type": "define",
                     "code": {
@@ -126,6 +172,10 @@ def transpile_code(input_code, name):
                 if '"' in value:
                     v1 = False
                     v = False
+                if '(' in value:
+                    v = True
+                if ')' in value:
+                    v = True
                 context_stack[-1].append({
                     "type": "define",
                     "code": {

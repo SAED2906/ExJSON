@@ -1,6 +1,7 @@
 import json
 import re
 import sys
+import random
 
 variables = {}
 symbol_types = {}
@@ -27,16 +28,24 @@ def add(code_block):
     var2 = 0
 
     if c_var1.get('symbol'):
-        var1 = variables[c_var1.get('content')]
-        if symbol_types[c_var1.get('content')] == "int":
-            var1 = int(var1)
+        if '(' in c_var1.get('content') or ')' in c_var1.get('content'):
+            if 'rand()' in c_var1.get('content'):
+                var1 = random.randint(0, 1)
+        else:
+            var1 = variables[c_var1.get('content')]
+            if symbol_types[c_var1.get('content')] == "int":
+                var1 = int(var1)
     else:
         var1 = c_var1.get('content')
 
     if c_var2.get('symbol'):
-        var2 = variables[c_var2.get('content')]
-        if symbol_types[c_var2.get('content')] == "int":
-            var2 = int(var2)
+        if '(' in c_var2.get('content') or ')' in c_var2.get('content'):
+            if 'rand()' in c_var2.get('content'):
+                var2 = random.randint(0, 1)
+        else:
+            var2 = variables[c_var2.get('content')]
+            if symbol_types[c_var2.get('content')] == "int":
+                var2 = int(var2)
     else:
         var2 = c_var2.get('content')
 
@@ -49,8 +58,13 @@ def define(code_block):
         variables[define_def.get('variable')] = define_def.get('content')
         symbol_types[define_def.get('variable')] = define_code.get("type")
     elif define_def.get('symbol'):
-        variables[define_def.get('variable')] = variables[define_def.get('content')]
-        symbol_types[define_def.get('variable')] = define_code.get("type")
+        if '(' in define_def.get('content') or ')' in define_def.get('content'):
+            if 'rand()' in define_def.get('content'):
+                variables[define_def.get('variable')] = random.randint(0, 1)
+                symbol_types[define_def.get('variable')] = "int"
+        else:
+            variables[define_def.get('variable')] = variables[define_def.get('content')]
+            symbol_types[define_def.get('variable')] = define_code.get("type")
 
 def inp(code_block):
     in_code = code_block.get("code", {})
@@ -90,76 +104,243 @@ def whileloop(code_block):
             cbs = code_block.get('code', {})
             sub_def(cbs);
 
-            var1 = variables[c_var1.get('content')]
-            if symbol_types[c_var1.get('content')] == "int":
-                var1 = int(var1)
+            if c_var1.get('symbol'):
+                var1 = variables[c_var1.get('content')]
+                if symbol_types[c_var1.get('content')] == "int":
+                    var1 = int(var1)
+            else:
+                var1 = c_var1.get('content')
 
-            var2 = variables[c_var2.get('content')]
-            if symbol_types[c_var2.get('content')] == "int":
-                var2 = int(var2)
+            if c_var2.get('symbol'):
+                var2 = variables[c_var2.get('content')]
+                if symbol_types[c_var2.get('content')] == "int":
+                    var2 = int(var2)
+            else:
+                var2 = c_var2.get('content')
 
     elif relation == "<=":
         while (var1 <= var2):
             cbs = code_block.get('code', {})
             sub_def(cbs);
 
-            var1 = variables[c_var1.get('content')]
-            if symbol_types[c_var1.get('content')] == "int":
-                var1 = int(var1)
+            if c_var1.get('symbol'):
+                var1 = variables[c_var1.get('content')]
+                if symbol_types[c_var1.get('content')] == "int":
+                    var1 = int(var1)
+            else:
+                var1 = c_var1.get('content')
 
-            var2 = variables[c_var2.get('content')]
-            if symbol_types[c_var2.get('content')] == "int":
-                var2 = int(var2)
+            if c_var2.get('symbol'):
+                var2 = variables[c_var2.get('content')]
+                if symbol_types[c_var2.get('content')] == "int":
+                    var2 = int(var2)
+            else:
+                var2 = c_var2.get('content')
     elif relation == ">":
         while (var1 > var2):
             cbs = code_block.get('code', {})
             sub_def(cbs);
 
-            var1 = variables[c_var1.get('content')]
-            if symbol_types[c_var1.get('content')] == "int":
-                var1 = int(var1)
+            if c_var1.get('symbol'):
+                var1 = variables[c_var1.get('content')]
+                if symbol_types[c_var1.get('content')] == "int":
+                    var1 = int(var1)
+            else:
+                var1 = c_var1.get('content')
 
-            var2 = variables[c_var2.get('content')]
-            if symbol_types[c_var2.get('content')] == "int":
-                var2 = int(var2)
+            if c_var2.get('symbol'):
+                var2 = variables[c_var2.get('content')]
+                if symbol_types[c_var2.get('content')] == "int":
+                    var2 = int(var2)
+            else:
+                var2 = c_var2.get('content')
     elif relation == ">=":
         while (var1 >= var2):
             cbs = code_block.get('code', {})
             sub_def(cbs);
 
-            var1 = variables[c_var1.get('content')]
-            if symbol_types[c_var1.get('content')] == "int":
-                var1 = int(var1)
+            if c_var1.get('symbol'):
+                var1 = variables[c_var1.get('content')]
+                if symbol_types[c_var1.get('content')] == "int":
+                    var1 = int(var1)
+            else:
+                var1 = c_var1.get('content')
 
-            var2 = variables[c_var2.get('content')]
-            if symbol_types[c_var2.get('content')] == "int":
-                var2 = int(var2)
+            if c_var2.get('symbol'):
+                var2 = variables[c_var2.get('content')]
+                if symbol_types[c_var2.get('content')] == "int":
+                    var2 = int(var2)
+            else:
+                var2 = c_var2.get('content')
     elif relation == "==":
         while (var1 == var2):
             cbs = code_block.get('code', {})
             sub_def(cbs);
 
-            var1 = variables[c_var1.get('content')]
-            if symbol_types[c_var1.get('content')] == "int":
-                var1 = int(var1)
+            if c_var1.get('symbol'):
+                var1 = variables[c_var1.get('content')]
+                if symbol_types[c_var1.get('content')] == "int":
+                    var1 = int(var1)
+            else:
+                var1 = c_var1.get('content')
 
-            var2 = variables[c_var2.get('content')]
-            if symbol_types[c_var2.get('content')] == "int":
-                var2 = int(var2)
+            if c_var2.get('symbol'):
+                var2 = variables[c_var2.get('content')]
+                if symbol_types[c_var2.get('content')] == "int":
+                    var2 = int(var2)
+            else:
+                var2 = c_var2.get('content')
     elif relation == "!=":
         while (var1 != var2):
             cbs = code_block.get('code', {})
             sub_def(cbs);
 
-            var1 = variables[c_var1.get('content')]
-            if symbol_types[c_var1.get('content')] == "int":
-                var1 = int(var1)
+            if c_var1.get('symbol'):
+                var1 = variables[c_var1.get('content')]
+                if symbol_types[c_var1.get('content')] == "int":
+                    var1 = int(var1)
+            else:
+                var1 = c_var1.get('content')
 
-            var2 = variables[c_var2.get('content')]
-            if symbol_types[c_var2.get('content')] == "int":
-                var2 = int(var2)
+            if c_var2.get('symbol'):
+                var2 = variables[c_var2.get('content')]
+                if symbol_types[c_var2.get('content')] == "int":
+                    var2 = int(var2)
+            else:
+                var2 = c_var2.get('content')
 
+def ifc(code_block):
+    condition = code_block.get("condition", {})
+    c_var1 = condition.get('variable1', {})
+    c_var2 = condition.get('variable2', {})
+    relation = condition.get('relation')
 
+    var1 = 0
+    var2 = 0
+
+    if c_var1.get('symbol'):
+        var1 = variables[c_var1.get('content')]
+        if symbol_types[c_var1.get('content')] == "int":
+            var1 = int(var1)
+    else:
+        var1 = c_var1.get('content')
+
+    if c_var2.get('symbol'):
+        var2 = variables[c_var2.get('content')]
+        if symbol_types[c_var2.get('content')] == "int":
+            var2 = int(var2)
+    else:
+        var2 = c_var2.get('content')
+    
+    if relation == "<":
+        if (var1 < var2):
+            cbs = code_block.get('code', {})
+            sub_def(cbs);
+
+            if c_var1.get('symbol'):
+                var1 = variables[c_var1.get('content')]
+                if symbol_types[c_var1.get('content')] == "int":
+                    var1 = int(var1)
+            else:
+                var1 = c_var1.get('content')
+
+            if c_var2.get('symbol'):
+                var2 = variables[c_var2.get('content')]
+                if symbol_types[c_var2.get('content')] == "int":
+                    var2 = int(var2)
+            else:
+                var2 = c_var2.get('content')
+
+    elif relation == "<=":
+        if (var1 <= var2):
+            cbs = code_block.get('code', {})
+            sub_def(cbs);
+
+            if c_var1.get('symbol'):
+                var1 = variables[c_var1.get('content')]
+                if symbol_types[c_var1.get('content')] == "int":
+                    var1 = int(var1)
+            else:
+                var1 = c_var1.get('content')
+
+            if c_var2.get('symbol'):
+                var2 = variables[c_var2.get('content')]
+                if symbol_types[c_var2.get('content')] == "int":
+                    var2 = int(var2)
+            else:
+                var2 = c_var2.get('content')
+    elif relation == ">":
+        if (var1 > var2):
+            cbs = code_block.get('code', {})
+            sub_def(cbs);
+
+            if c_var1.get('symbol'):
+                var1 = variables[c_var1.get('content')]
+                if symbol_types[c_var1.get('content')] == "int":
+                    var1 = int(var1)
+            else:
+                var1 = c_var1.get('content')
+
+            if c_var2.get('symbol'):
+                var2 = variables[c_var2.get('content')]
+                if symbol_types[c_var2.get('content')] == "int":
+                    var2 = int(var2)
+            else:
+                var2 = c_var2.get('content')
+    elif relation == ">=":
+        if (var1 >= var2):
+            cbs = code_block.get('code', {})
+            sub_def(cbs);
+
+            if c_var1.get('symbol'):
+                var1 = variables[c_var1.get('content')]
+                if symbol_types[c_var1.get('content')] == "int":
+                    var1 = int(var1)
+            else:
+                var1 = c_var1.get('content')
+
+            if c_var2.get('symbol'):
+                var2 = variables[c_var2.get('content')]
+                if symbol_types[c_var2.get('content')] == "int":
+                    var2 = int(var2)
+            else:
+                var2 = c_var2.get('content')
+    elif relation == "==":
+        if (var1 == var2):
+            cbs = code_block.get('code', {})
+            sub_def(cbs);
+
+            if c_var1.get('symbol'):
+                var1 = variables[c_var1.get('content')]
+                if symbol_types[c_var1.get('content')] == "int":
+                    var1 = int(var1)
+            else:
+                var1 = c_var1.get('content')
+
+            if c_var2.get('symbol'):
+                var2 = variables[c_var2.get('content')]
+                if symbol_types[c_var2.get('content')] == "int":
+                    var2 = int(var2)
+            else:
+                var2 = c_var2.get('content')
+    elif relation == "!=":
+        if (var1 != var2):
+            cbs = code_block.get('code', {})
+            sub_def(cbs);
+
+            if c_var1.get('symbol'):
+                var1 = variables[c_var1.get('content')]
+                if symbol_types[c_var1.get('content')] == "int":
+                    var1 = int(var1)
+            else:
+                var1 = c_var1.get('content')
+
+            if c_var2.get('symbol'):
+                var2 = variables[c_var2.get('content')]
+                if symbol_types[c_var2.get('content')] == "int":
+                    var2 = int(var2)
+            else:
+                var2 = c_var2.get('content')
 def sub_def(code_blocks):
     for code_block in code_blocks:
         code_type = code_block.get("type")
@@ -178,6 +359,9 @@ def sub_def(code_blocks):
 
         elif code_type == "while":
             whileloop(code_block)
+
+        elif code_type == "if":
+            ifc(code_block)
 
         elif code_type == "exit":
             print("Exit instruction found.")

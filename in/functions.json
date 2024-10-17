@@ -1,0 +1,176 @@
+{
+    "program": "../in/functions.xjs",
+    "global": "",
+    "instructions": [
+        {
+            "instruction": "init",
+            "code": [
+                {}
+            ]
+        },
+        {
+            "instruction": "execute",
+            "code": [
+                {}
+            ]
+        }
+    ],
+    "code": [
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "x",
+                    "symbol": true,
+                    "value": false,
+                    "content": "rand()"
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "add",
+            "code": {
+                "variable1": {
+                    "symbol": true,
+                    "content": "x"
+                },
+                "variable2": {
+                    "symbol": true,
+                    "content": "rand()"
+                },
+                "result": "x"
+            }
+        },
+        {
+            "type": "if",
+            "condition": {
+                "variable1": {
+                    "symbol": true,
+                    "content": "x"
+                },
+                "variable2": {
+                    "symbol": false,
+                    "content": 1
+                },
+                "relation": ">"
+            },
+            "code": [
+                {
+                    "type": "print",
+                    "code": {
+                        "value": "${x}"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "y",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "define",
+            "code": {
+                "def": {
+                    "variable": "counter",
+                    "symbol": false,
+                    "value": true,
+                    "content": 0
+                },
+                "type": "int"
+            }
+        },
+        {
+            "type": "while",
+            "condition": {
+                "variable1": {
+                    "symbol": true,
+                    "content": "x"
+                },
+                "variable2": {
+                    "symbol": false,
+                    "content": 100
+                },
+                "relation": "<"
+            },
+            "code": [
+                {
+                    "type": "define",
+                    "code": {
+                        "def": {
+                            "variable": "y",
+                            "symbol": true,
+                            "value": false,
+                            "content": "x"
+                        },
+                        "type": "int"
+                    }
+                },
+                {
+                    "type": "add",
+                    "code": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "x"
+                        },
+                        "variable2": {
+                            "symbol": true,
+                            "content": "rand()"
+                        },
+                        "result": "x"
+                    }
+                },
+                {
+                    "type": "if",
+                    "condition": {
+                        "variable1": {
+                            "symbol": true,
+                            "content": "x"
+                        },
+                        "variable2": {
+                            "symbol": true,
+                            "content": "y"
+                        },
+                        "relation": "=="
+                    },
+                    "code": [
+                        {
+                            "type": "add",
+                            "code": {
+                                "variable1": {
+                                    "symbol": true,
+                                    "content": "counter"
+                                },
+                                "variable2": {
+                                    "symbol": false,
+                                    "content": 1
+                                },
+                                "result": "counter"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "print",
+            "code": {
+                "value": "${counter}"
+            }
+        },
+        {
+            "type": "print",
+            "code": {
+                "value": "${x}"
+            }
+        }
+    ]
+}
